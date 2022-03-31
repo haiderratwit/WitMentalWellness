@@ -2,9 +2,15 @@ package edu.wit.mobileapp.wellness_app.ui.notifications;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,8 +20,10 @@ import java.util.Locale;
 
 import edu.wit.mobileapp.wellness_app.R;
 
-public class time_schedule extends AppCompatActivity {
+public class time_schedule extends AppCompatActivity implements TimePicker.OnTimeChangedListener {
 
+    String month_name = "";
+    int hour_choice, minute_choice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +33,6 @@ public class time_schedule extends AppCompatActivity {
         int year = bundle.getInt("Year");
         int month = bundle.getInt("Month");
         int day = bundle.getInt("Day");
-        String month_name = "";
 
         switch (month){
             case 1:
@@ -78,5 +85,42 @@ public class time_schedule extends AppCompatActivity {
         String dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date);
         TextView day_picker = (TextView) findViewById(R.id.current_day);
         day_picker.setText(dayOfWeek + ", " + month_name + ", " + day );
+
+
+        TimePicker timePicker = (TimePicker)findViewById(R.id.time_picker);
+        hour_choice = timePicker.getHour();
+        minute_choice = timePicker.getMinute();
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker timePicker, int hour, int minute) {
+                hour_choice = hour;
+                minute_choice = minute;
+            }
+        });
+
+        LinearLayout linearLayout = (LinearLayout)findViewById(R.id.confirm);
+        Button confirmbtn = (Button) linearLayout.findViewById(R.id.confirm_button);
+        confirmbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("message/rfc822");
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"vand@wit.edu"});
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Confirmed appointment with Center of Wellness");
+                intent.putExtra(Intent.EXTRA_TEXT,
+                        "Confirm time: \n\t" + dayOfWeek + " " + month_name + " " + day +
+                                " at " + hour_choice + ":" + minute_choice +
+                                " at Wellness Center with Counselor ... for user ...");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(Intent.createChooser(intent,"Send mail ..."));
+            }
+        });
+    }
+
+
+    @Override
+    public void onTimeChanged(TimePicker timePicker, int i, int i1) {
+        hour_choice = i;
+        minute_choice = i1;
     }
 }
