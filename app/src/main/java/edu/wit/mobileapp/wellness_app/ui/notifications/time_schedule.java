@@ -115,6 +115,15 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
                 startActivity(Intent.createChooser(intent,"Send mail ..."));
             }
         });
+        Button backbtn = (Button) linearLayout.findViewById(R.id.back_button);
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(time_schedule.this, NotificationsFragment.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 

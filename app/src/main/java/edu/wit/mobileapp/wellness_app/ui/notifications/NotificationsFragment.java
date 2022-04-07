@@ -6,17 +6,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import edu.wit.mobileapp.wellness_app.R;
 import edu.wit.mobileapp.wellness_app.databinding.FragmentNotificationsBinding;
+import edu.wit.mobileapp.wellness_app.ui.home.HomeFragment;
 
 public class NotificationsFragment extends Fragment {
 
@@ -31,16 +35,7 @@ public class NotificationsFragment extends Fragment {
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textView;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-
         final CalendarView calendarView = binding.calendarView;
-        final int DATE_PICKER_ID = 1111;
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
@@ -54,12 +49,27 @@ public class NotificationsFragment extends Fragment {
                 startActivity(time_schedule);
             }
         });
+
+        final Button back_button = binding.backButton1;
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                Fragment fragment_home = new HomeFragment();
+                transaction.replace(R.id.container, fragment_home);
+                transaction.commit();
+            }
+        });
         return root;
     }
+
+
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
+
 }
