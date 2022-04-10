@@ -9,7 +9,14 @@
         android:id="@+id/navigation_home"
         android:name="edu.wit.mobileapp.wellness_app.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_guidedMeditation"
+            app:destination="@id/guidedMeditation" />
+        <action
+            android:id="@+id/action_navigation_home_to_breathing3"
+            app:destination="@id/breathing3" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +29,14 @@
         android:name="edu.wit.mobileapp.wellness_app.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/guidedMeditation"
+        android:name="edu.wit.mobileapp.wellness_app.ui.home.GuidedMeditation"
+        android:label="guided_meditation_fragment"
+        tools:layout="@layout/guided_meditation_fragment" />
+    <fragment
+        android:id="@+id/breathing3"
+        android:name="edu.wit.mobileapp.wellness_app.ui.home.Breathing"
+        android:label="breathing_fragment"
+        tools:layout="@layout/breathing_fragment" />
 </navigation>

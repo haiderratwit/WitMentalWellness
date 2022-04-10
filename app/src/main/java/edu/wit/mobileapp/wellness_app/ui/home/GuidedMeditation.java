@@ -22,42 +22,32 @@ import androidx.navigation.Navigation;
 import edu.wit.mobileapp.wellness_app.R;
 import edu.wit.mobileapp.wellness_app.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+public class GuidedMeditation extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private GuidedMeditationViewModel guidedMeditationViewModel;
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        View root = inflater.inflate(R.layout.guided_meditation_fragment, container, false);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), R.raw.guided_3_min);
 
-        Button gotoMeditation = root.findViewById(R.id.guided);
-        gotoMeditation.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View view) {
-
-                Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_guidedMeditation);
-                //NavController navController = Navigation.findNavController();
-            }
-        });
-
-        Button gotoBreathing = root.findViewById(R.id.breathing);
-        gotoMeditation.setOnClickListener(new View.OnClickListener() {
+        Button play = root.findViewById(R.id.play_meditation);
+        play.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                if (!mediaPlayer.isPlaying()) {
+                    mediaPlayer.start();
+                } else {
+                    mediaPlayer.pause();
+                }
 
-                Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_breathing3);
-                //NavController navController = Navigation.findNavController();
+
             }
         });
-
-
 
         return root;
     }
