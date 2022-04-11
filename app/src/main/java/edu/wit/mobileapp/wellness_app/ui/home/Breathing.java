@@ -32,8 +32,10 @@ public class Breathing extends Fragment {
             public void onClick(View view) {
                 if (!mediaPlayer.isPlaying()) {
                     mediaPlayer.start();
+                    play.setText("Pause");
                 } else {
                     mediaPlayer.pause();
+                    play.setText("Play");
                 }
 
 
