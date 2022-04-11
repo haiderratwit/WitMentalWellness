@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_navigation_home_to_breathing3"
             app:destination="@id/breathing3" />
+        <action
+            android:id="@+id/action_navigation_home_to_sounds2"
+            app:destination="@id/sounds2" />
     </fragment>
 
     <fragment
@@ -39,4 +42,8 @@
         android:name="edu.wit.mobileapp.wellness_app.ui.home.Breathing"
         android:label="breathing_fragment"
         tools:layout="@layout/breathing_fragment" />
+    <fragment
+        android:id="@+id/sounds2"
+        android:name="edu.wit.mobileapp.wellness_app.ui.home.Sounds"
+        android:label="Sounds" />
 </navigation>

@@ -61,6 +61,18 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        Button gotoSounds = root.findViewById(R.id.sounds);
+        gotoSounds.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Sounds frag = new Sounds();
+
+                //getParentFragmentManager().beginTransaction().add(R.id.meditations, frag).commit();
+                Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_sounds2);
+                //NavController navController = Navigation.findNavController();
+            }
+        });
 
 
         return root;

@@ -22,7 +22,7 @@ public class Breathing extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.breathing_fragment, container, false);
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), R.raw.guided_3_min);
+        MediaPlayer breathingMediaPlayer = MediaPlayer.create(getContext(), R.raw.breathing_exercise);
 
 
         Button play = root.findViewById(R.id.play_meditation);
@@ -30,11 +30,11 @@ public class Breathing extends Fragment {
 
             @Override
             public void onClick(View view) {
-                if (!mediaPlayer.isPlaying()) {
-                    mediaPlayer.start();
+                if (!breathingMediaPlayer.isPlaying()) {
+                    breathingMediaPlayer.start();
                     play.setText("Pause");
                 } else {
-                    mediaPlayer.pause();
+                    breathingMediaPlayer.pause();
                     play.setText("Play");
                 }
 
