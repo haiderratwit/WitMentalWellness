@@ -19,9 +19,10 @@
         <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/guided_meditation_fragment.xml" value="0.16" />
         <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/sounds_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1953125" />
-        <entry key="app/src/main/res/layout/activity_time_schedule.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_time_schedule.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1953125" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1921875" />
+        <entry key="app/src/main/res/layout/guided_meditation_fragment.xml" value="0.18333333333333332" />
       </map>
     </option>
   </component>
