@@ -3,9 +3,11 @@ package edu.wit.mobileapp.wellness_app;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +18,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.FileOutputStream;
+
 public class LoginActivity extends AppCompatActivity {
 
     TextInputEditText etLoginEmail;
@@ -25,6 +29,8 @@ public class LoginActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
 
+    private String fileName = "WelnessAppFile";
+    private String email = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +45,14 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(view -> {
             loginUser();
+            FileOutputStream outputStream;
+            try{
+                outputStream = openFileOutput(fileName, Context.MODE_PRIVATE);
+                outputStream.write(email.getBytes());
+                outputStream.close();
+            }catch (Exception e){
+                Log.v("Write email registration","Error: " + e);
+            }
         });
         tvRegisterHere.setOnClickListener(view ->{
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
@@ -46,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(){
-        String email = etLoginEmail.getText().toString();
+        email = etLoginEmail.getText().toString();
         String password = etLoginPassword.getText().toString();
 
         if (TextUtils.isEmpty(email)){

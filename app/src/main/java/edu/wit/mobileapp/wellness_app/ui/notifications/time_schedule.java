@@ -2,6 +2,7 @@ package edu.wit.mobileapp.wellness_app.ui.notifications;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,13 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOError;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.InvalidObjectException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,7 +31,12 @@ import edu.wit.mobileapp.wellness_app.R;
 public class time_schedule extends AppCompatActivity implements TimePicker.OnTimeChangedListener {
 
     String month_name = "";
+    private String fileName = "WelnessAppFile";
     int hour_choice, minute_choice;
+    private Context context;
+    private String email ="";
+    TextView counselourName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +111,31 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
             }
         });
 
+        context = getApplicationContext();
+        FileInputStream fis;
+        InputStreamReader isr;
+        BufferedReader bufferedReader;
+
+        try{
+            fis = context.openFileInput(fileName);
+            isr = new InputStreamReader(fis);
+            bufferedReader = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while((line = bufferedReader.readLine())!=null){
+                sb.append(line);
+                email = sb.toString();
+            }
+        }catch(FileNotFoundException e){
+            Log.v("Read File: ", "Error: " + e);
+        } catch(IOException e){
+            Log.v("Read File: ", "Error: " + e);
+        }
+
+        Log.v("Email receive", "Email is: " + email);
+
+        counselourName = (TextView) findViewById(R.id.conselour_name);
+
         LinearLayout linearLayout = (LinearLayout)findViewById(R.id.confirm);
         Button confirmbtn = (Button) linearLayout.findViewById(R.id.confirm_button);
         confirmbtn.setOnClickListener(new View.OnClickListener() {
@@ -105,12 +143,14 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("message/rfc822");
-                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"vand@wit.edu"});
+                //intent.putExtra(Intent.EXTRA_EMAIL,email);
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{email});
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Confirmed appointment with Center of Wellness");
                 intent.putExtra(Intent.EXTRA_TEXT,
                         "Confirm time: \n\t" + dayOfWeek + " " + month_name + " " + day +
                                 " at " + hour_choice + ":" + minute_choice +
-                                " at Wellness Center with Counselor ... for user ...");
+                                " at Wellness Center with Counselor " + counselourName +
+                                " for user with that email: " + email );
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(Intent.createChooser(intent,"Send mail ..."));
             }

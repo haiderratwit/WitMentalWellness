@@ -3,9 +3,11 @@ package edu.wit.mobileapp.wellness_app;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +18,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.FileOutputStream;
+
 public class RegisterActivity extends AppCompatActivity {
 
     TextInputEditText etRegEmail;
@@ -24,6 +28,8 @@ public class RegisterActivity extends AppCompatActivity {
     Button btnRegister;
 
     FirebaseAuth mAuth;
+    private String fileName = "WelnessAppFile";
+    private String email ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +43,27 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+
         btnRegister.setOnClickListener(view ->{
             createUser();
+            FileOutputStream outputStream;
+            try{
+                outputStream = openFileOutput(fileName, Context.MODE_PRIVATE);
+                outputStream.write(email.getBytes());
+                outputStream.close();
+            }catch (Exception e){
+                Log.v("Write email registration","Error: " + e);
+            }
         });
 
         tvLoginHere.setOnClickListener(view ->{
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+
         });
     }
 
     private void createUser(){
-        String email = etRegEmail.getText().toString();
+        email = etRegEmail.getText().toString();
         String password = etRegPassword.getText().toString();
 
         if (TextUtils.isEmpty(email)){
@@ -69,5 +85,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             });
         }
+
     }
 }

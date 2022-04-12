@@ -40,23 +40,39 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
+                GuidedMeditation frag = new GuidedMeditation();
 
+                //getParentFragmentManager().beginTransaction().add(R.id.meditations, frag).commit();
                 Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_guidedMeditation);
                 //NavController navController = Navigation.findNavController();
             }
         });
 
         Button gotoBreathing = root.findViewById(R.id.breathing);
-        gotoMeditation.setOnClickListener(new View.OnClickListener() {
+        gotoBreathing.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                Breathing frag = new Breathing();
 
+                getParentFragmentManager().beginTransaction().add(R.id.meditations, frag).commit();
                 Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_breathing3);
                 //NavController navController = Navigation.findNavController();
             }
         });
 
+        Button gotoSounds = root.findViewById(R.id.sounds);
+        gotoSounds.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Sounds frag = new Sounds();
+
+                //getParentFragmentManager().beginTransaction().add(R.id.meditations, frag).commit();
+                Navigation.findNavController(view).navigate(R.id.action_navigation_home_to_sounds2);
+                //NavController navController = Navigation.findNavController();
+            }
+        });
 
 
         return root;
