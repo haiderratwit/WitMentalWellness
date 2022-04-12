@@ -18,11 +18,13 @@ public class Breathing extends Fragment {
     private GuidedMeditationViewModel guidedMeditationViewModel;
     private FragmentHomeBinding binding;
 
+    private MediaPlayer breathingMediaPlayer;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.breathing_fragment, container, false);
 
-        MediaPlayer breathingMediaPlayer = MediaPlayer.create(getContext(), R.raw.breathing_exercise);
+        breathingMediaPlayer = MediaPlayer.create(getContext(), R.raw.breathing_exercise);
 
 
         Button play = root.findViewById(R.id.play_meditation);
@@ -49,6 +51,7 @@ public class Breathing extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        breathingMediaPlayer.stop();
         binding = null;
     }
 }

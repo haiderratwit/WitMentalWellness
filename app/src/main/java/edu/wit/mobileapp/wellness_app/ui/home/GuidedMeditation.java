@@ -26,12 +26,13 @@ public class GuidedMeditation extends Fragment {
 
     private GuidedMeditationViewModel guidedMeditationViewModel;
     private FragmentHomeBinding binding;
+    private MediaPlayer mediaPlayer;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.guided_meditation_fragment, container, false);
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), R.raw.guided_3_min);
+        mediaPlayer = MediaPlayer.create(getContext(), R.raw.guided_3_min);
 
 
         Button play = root.findViewById(R.id.play_meditation);
@@ -58,6 +59,7 @@ public class GuidedMeditation extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        mediaPlayer.stop();
         binding = null;
     }
 }

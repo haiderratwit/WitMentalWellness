@@ -17,12 +17,13 @@ public class Sounds extends Fragment {
 
     private GuidedMeditationViewModel guidedMeditationViewModel;
     private FragmentHomeBinding binding;
+    private MediaPlayer soundMediaPlayer;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.sounds_fragment, container, false);
 
-        MediaPlayer soundMediaPlayer = MediaPlayer.create(getContext(), R.raw.sounds);
+        soundMediaPlayer = MediaPlayer.create(getContext(), R.raw.sounds);
 
 
         Button play = root.findViewById(R.id.play_meditation);
@@ -49,6 +50,7 @@ public class Sounds extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        soundMediaPlayer.stop();
         binding = null;
     }
 }
