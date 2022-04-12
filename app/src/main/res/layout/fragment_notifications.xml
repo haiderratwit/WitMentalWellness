@@ -28,11 +28,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wentworth_logo" />
 
-    <Button
-        android:id="@+id/back_button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/back_button" />
+
 </LinearLayout>

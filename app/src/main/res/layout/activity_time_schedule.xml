@@ -35,9 +35,9 @@
         android:id="@+id/conselour_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="@string/counselor_name" />
+
 
     <LinearLayout
         android:id="@+id/confirm"
@@ -60,6 +60,8 @@
             android:text="@string/confirm_button" />
 
     </LinearLayout>
+
+
 
 
 </LinearLayout>
