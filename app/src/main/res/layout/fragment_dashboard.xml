@@ -29,12 +29,12 @@
 
             <TextView
                 android:id="@+id/titleOfContact"
-                android:layout_width="349dp"
-                android:layout_height="60dp"
+                android:layout_width="match_parent"
+                android:layout_height="99dp"
                 android:text="Counselor Bios"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textSize="20sp"
+                android:textSize="34sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -45,9 +45,11 @@
 
             <TextView
                 android:id="@+id/counselorName1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
                 android:text="Loren Belforti, MSW, LICSW"
+                android:textAlignment="center"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -58,22 +60,25 @@
 
             <ImageView
                 android:id="@+id/counselorImage1"
-                android:layout_width="159dp"
-                android:layout_height="181dp"
+                android:layout_width="393dp"
+                android:layout_height="233dp"
+
+                android:src="@drawable/belforti"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.148"
-                android:src="@drawable/belforti"
-                />
+                app:layout_constraintVertical_bias="0.148" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="415dp"
-                android:layout_height="236dp"
-                android:text="Degrees: \nUniversity of Delaware; Bachelor of Arts \nBoston University; Master of Social Work \n\nAffiliations \nNational Association of Social Workers Professional interests \nSexuality, Gender, LGBTQ+ community, relationships, identity formation, holistic health \n\nClinical Approach \nDialectical Behavior Therapy, Group Therapy, client-centered and collaborative."
+                android:layout_width="393dp"
+                android:layout_height="426dp"
+                android:lineSpacingExtra="8sp"
+                android:text="Degrees: \nUniversity of Delaware; Bachelor of Arts \nBoston University; Master of Social Work \n\nAffiliations: \nNational Association of Social Workers Professional interests \nSexuality, Gender, LGBTQ+ community, relationships, identity formation, holistic health \n\nClinical Approach: \nDialectical Behavior Therapy, Group Therapy, client-centered and collaborative."
+                android:textAlignment="viewStart"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.743"
@@ -83,9 +88,11 @@
 
             <TextView
                 android:id="@+id/counselorName2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="395dp"
+                android:layout_height="38dp"
                 android:text="David Gaydos, MSW, LCSW"
+                android:textAlignment="center"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -97,8 +104,8 @@
 
             <ImageView
                 android:id="@+id/counselorImage2"
-                android:layout_width="156dp"
-                android:layout_height="177dp"
+                android:layout_width="match_parent"
+                android:layout_height="207dp"
                 android:src="@drawable/gaydos"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -110,8 +117,10 @@
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="396dp"
-                android:layout_height="216dp"
-                android:text="Degrees \nEastern Michigan University, Bachelor of Science. \nBoston College, Master of Social Work. \n\nAffiliations \nNational Association of Social Work, Unified Protocol Institute. Professional interests \n\nClinical Approach \nCognitive Behavior Therapy, Dialectical Behavior Therapy, Unified Protocol, collaborative, humanistic.  "
+                android:layout_height="370dp"
+                android:lineSpacingExtra="8sp"
+                android:text="Degrees: \nEastern Michigan University, Bachelor of Science. \nBoston College, Master of Social Work. \n\nAffiliations: \nNational Association of Social Work, Unified Protocol Institute. Professional interests \n\nClinical Approach: \nCognitive Behavior Therapy, Dialectical Behavior Therapy, Unified Protocol, collaborative, humanistic.  "
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.875"
@@ -122,9 +131,11 @@
 
             <TextView
                 android:id="@+id/counselorName3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="395dp"
+                android:layout_height="31dp"
                 android:text="Rachaelle Goldfarb, LICSW"
+                android:textAlignment="center"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -135,8 +146,8 @@
 
             <ImageView
                 android:id="@+id/counselorImage3"
-                android:layout_width="155dp"
-                android:layout_height="169dp"
+                android:layout_width="382dp"
+                android:layout_height="226dp"
                 android:src="@drawable/goldfarb"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -148,9 +159,11 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="369dp"
-                android:layout_height="212dp"
-                android:text="Degrees \nWellesley College, Bachelor of Arts \nBoston College, Master of Social Work. \n\nProfessional Interests \nAnxiety and Depressive Disorders, familial relationships and Identity formation, time management/goal setting and achievement\n\nClinical Approach \nCognitive Behavior Therapy, Dialectical Behavior Therapy, Unified Protocol, collaborative, humanistic.  "
+                android:layout_width="393dp"
+                android:layout_height="372dp"
+                android:lineSpacingExtra="8sp"
+                android:text="Degrees: \nWellesley College, Bachelor of Arts \nBoston College, Master of Social Work. \n\nProfessional Interests: \nAnxiety and Depressive Disorders, familial relationships and Identity formation, time management/goal setting and achievement\n\nClinical Approach: \nCognitive Behavior Therapy, Dialectical Behavior Therapy, Unified Protocol, collaborative, humanistic.  "
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -160,7 +173,7 @@
 
             <Button
                 android:id="@+id/contactBtn"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Contact a Counselor"
                 app:layout_constraintBottom_toBottomOf="parent"

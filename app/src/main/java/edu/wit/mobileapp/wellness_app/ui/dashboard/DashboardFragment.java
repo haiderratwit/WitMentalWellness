@@ -38,9 +38,6 @@ public class DashboardFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
                 Intent intent = new Intent(getActivity(), edu.wit.mobileapp.wellness_app.ui.dashboard.ContactInfo.class);
 
                 startActivity(intent);
