@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Wellness_App</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Meditation</string>
+    <string name="title_dashboard">Counselor Bio</string>
+    <string name="title_notifications">Schedule</string>
     <string name="back_button">Back</string>
     <string name="confirm_button">Confirm</string>
     <string name="prompt_email">Email</string>

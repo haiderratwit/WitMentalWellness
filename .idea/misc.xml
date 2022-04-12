@@ -3,26 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.1" />
+        <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/drawable/ic_baseline_self_improvement_24.xml" value="0.1" />
+        <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/drawable/ic_baseline_supervisor_account_24.xml" value="0.1" />
+        <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/activity_login.xml" value="0.21" />
         <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/activity_register.xml" value="0.21" />
         <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/activity_time_schedule.xml" value="0.125" />
         <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/bhaththiwalap/AndroidStudioProjects/Wellness_App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
-        <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1565" />
-        <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1565" />
         <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/activity_main.xml" value="0.2708333333333333" />
-        <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/breathing_fragment.xml" value="0.25" />
-        <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/fragment_dashboard.xml" value="0.15476699444206926" />
-        <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/fragment_notifications.xml" value="0.1527777777777778" />
-        <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/guided_meditation_fragment.xml" value="0.16" />
-        <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/sounds_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/sama/AndroidStudioProjects/Wellness_App/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1953125" />
-        <entry key="app/src/main/res/layout/activity_time_schedule.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_time_schedule.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1953125" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1921875" />
-        <entry key="app/src/main/res/layout/guided_meditation_fragment.xml" value="0.18333333333333332" />
       </map>
     </option>
   </component>
