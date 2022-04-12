@@ -1,18 +1,16 @@
 package edu.wit.mobileapp.wellness_app.ui.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import edu.wit.mobileapp.wellness_app.R;
 import edu.wit.mobileapp.wellness_app.databinding.FragmentDashboardBinding;
 
 public class DashboardFragment extends Fragment {
@@ -28,13 +26,29 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//        final TextView textView = binding.textView;
+//        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
+
+        Button button = binding.contactBtn;
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View view) {
+
+
+
+                Intent intent = new Intent(getActivity(), edu.wit.mobileapp.wellness_app.ui.dashboard.ContactInfo.class);
+
+                startActivity(intent);
+
             }
         });
+
+
         return root;
     }
 
