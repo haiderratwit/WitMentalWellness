@@ -12,6 +12,7 @@
 
 
     <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="406dp"
         android:layout_height="476dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,6 +24,7 @@
 
 
         <LinearLayout
+            android:id="@+id/counselor_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">

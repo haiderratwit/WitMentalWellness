@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -22,8 +24,10 @@ import java.io.InputStreamReader;
 import java.io.InvalidObjectException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import edu.wit.mobileapp.wellness_app.R;
@@ -46,6 +50,9 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
         int year = bundle.getInt("Year");
         int month = bundle.getInt("Month");
         int day = bundle.getInt("Day");
+        String counselorName = bundle.getString("CounselorName");
+
+        Log.v("Special passing value", "Counselor choice: " + counselorName);
 
         switch (month){
             case 1:
@@ -133,9 +140,20 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
         }
 
         Log.v("Email receive", "Email is: " + email);
+        /*
+        List<ListItem> list = new ArrayList<ListItem>();
 
-        counselourName = (TextView) findViewById(R.id.conselour_name);
+        ListItemAdapter adapter;
 
+        ListItem item1 = new ListItem();
+        item1.counselor_name = "John";
+
+        adapter = new ListItemAdapter(this, 0, list);
+        ListView listView = (ListView) findViewById(R.id.list_counselor);
+        listView.setAdapter(adapter);
+        */
+        counselourName = (TextView)findViewById(R.id.conselour_name);
+        counselourName.setText(counselorName);
         LinearLayout linearLayout = (LinearLayout)findViewById(R.id.confirm);
         Button confirmbtn = (Button) linearLayout.findViewById(R.id.confirm_button);
         confirmbtn.setOnClickListener(new View.OnClickListener() {
@@ -143,13 +161,12 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("message/rfc822");
-                //intent.putExtra(Intent.EXTRA_EMAIL,email);
                 intent.putExtra(Intent.EXTRA_EMAIL,new String[]{email});
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Confirmed appointment with Center of Wellness");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Appointment Confirmation");
                 intent.putExtra(Intent.EXTRA_TEXT,
                         "Confirm time: \n\t" + dayOfWeek + " " + month_name + " " + day +
                                 " at " + hour_choice + ":" + minute_choice +
-                                " at Wellness Center with Counselor " + counselourName +
+                                " at Wellness Center with Counselor " + counselorName +
                                 " for user with that email: " + email );
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(Intent.createChooser(intent,"Send mail ..."));
@@ -171,5 +188,9 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
     public void onTimeChanged(TimePicker timePicker, int i, int i1) {
         hour_choice = i;
         minute_choice = i1;
+    }
+
+    public class ListItem{
+        public String counselor_name;
     }
 }
