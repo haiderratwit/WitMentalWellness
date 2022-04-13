@@ -1,6 +1,10 @@
 package edu.wit.mobileapp.wellness_app.ui.notifications;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +18,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -31,15 +37,19 @@ import java.util.List;
 import java.util.Locale;
 
 import edu.wit.mobileapp.wellness_app.R;
+import edu.wit.mobileapp.wellness_app.databinding.ActivityMainBinding;
 
 public class time_schedule extends AppCompatActivity implements TimePicker.OnTimeChangedListener {
 
     String month_name = "";
-    private String fileName = "WellnessAppFile";
+    private String fileName_email = "WellnessAppFile";
+    private String fileName_counselor = "Wellness_Counselor";
     int hour_choice, minute_choice;
     private Context context;
     private String email ="";
+    private String counselor_choice;
     TextView counselourName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +60,7 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
         int year = bundle.getInt("Year");
         int month = bundle.getInt("Month");
         int day = bundle.getInt("Day");
-        String counselor_choice = bundle.getString("CounselorName");
+        //String counselor_choice = bundle.getString("CounselorName");
 
         Log.v("Special passing value", "Counselor choice: " + counselor_choice);
 
@@ -119,17 +129,17 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
         });
 
         context = getApplicationContext();
-        FileInputStream fis;
-        InputStreamReader isr;
-        BufferedReader bufferedReader;
+        FileInputStream fis_email;
+        InputStreamReader isr_email;
+        BufferedReader bufferedReader_email;
 
         try{
-            fis = context.openFileInput(fileName);
-            isr = new InputStreamReader(fis);
-            bufferedReader = new BufferedReader(isr);
+            fis_email = context.openFileInput(fileName_email);
+            isr_email = new InputStreamReader(fis_email);
+            bufferedReader_email = new BufferedReader(isr_email);
             StringBuilder sb = new StringBuilder();
             String line;
-            while((line = bufferedReader.readLine())!=null){
+            while((line = bufferedReader_email.readLine())!=null){
                 sb.append(line);
                 email = sb.toString();
             }
@@ -140,18 +150,29 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
         }
 
         Log.v("Email receive", "Email is: " + email);
-        /*
-        List<ListItem> list = new ArrayList<ListItem>();
 
-        ListItemAdapter adapter;
+        FileInputStream fis_counselor;
+        InputStreamReader isr_counselor;
+        BufferedReader bufferedReader_counselor;
 
-        ListItem item1 = new ListItem();
-        item1.counselor_name = "John";
+        try{
+            fis_counselor = context.openFileInput(fileName_counselor);
+            isr_counselor = new InputStreamReader(fis_counselor);
+            bufferedReader_counselor = new BufferedReader(isr_counselor);
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while((line = bufferedReader_counselor.readLine())!=null){
+                sb.append(line);
+                counselor_choice = sb.toString();
+            }
+        }catch(FileNotFoundException e){
+            Log.v("Read File: ", "Error: " + e);
+        } catch(IOException e){
+            Log.v("Read File: ", "Error: " + e);
+        }
 
-        adapter = new ListItemAdapter(this, 0, list);
-        ListView listView = (ListView) findViewById(R.id.list_counselor);
-        listView.setAdapter(adapter);
-        */
+        Log.v("Counselor receive", "Counselor is: " + counselor_choice);
+
         counselourName = (TextView)findViewById(R.id.conselour_name);
         counselourName.setText(counselor_choice);
 
@@ -167,12 +188,13 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
                 intent.putExtra(Intent.EXTRA_TEXT,
                         "Confirm time: \n\t" + dayOfWeek + " " + month_name + " " + day +
                                 " at " + hour_choice + ":" + minute_choice +
-                                " at Wellness Center with Counselor " + counselor_choice +
+                                " at Wellness Center with Counselor " + counselourName.getText() +
                                 " for user with that email: " + email );
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(Intent.createChooser(intent,"Send mail ..."));
             }
         });
+
 
         Button backbtn = (Button) linearLayout.findViewById(R.id.back_button);
         backbtn.setOnClickListener(new View.OnClickListener() {
@@ -194,6 +216,7 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
     public void backToNotification(){
         Intent intent = new Intent(this, NotificationsFragment.class);
         startActivity(intent);
+
     }
 
 }

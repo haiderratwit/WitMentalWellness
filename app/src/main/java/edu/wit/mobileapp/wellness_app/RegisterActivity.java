@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button btnRegister;
 
     FirebaseAuth mAuth;
-    private String fileName = "WelnessAppFile";
+    private String fileName = "WellnessAppFile";
     private String email ="";
 
     @Override

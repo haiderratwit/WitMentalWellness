@@ -51,7 +51,7 @@ public class NotificationsFragment extends Fragment {
         InputStreamReader isr;
         BufferedReader bufferedReader;
 
-        try{
+        /*try{
             fis = context.openFileInput(fileName);
             isr = new InputStreamReader(fis);
             bufferedReader = new BufferedReader(isr);
@@ -67,7 +67,7 @@ public class NotificationsFragment extends Fragment {
             Log.v("Read File: ", "Error: " + e);
         }
 
-        Log.v("Email receive", "Email is: " + counselor_choice);
+        Log.v("Email receive", "Email is: " + counselor_choice);*/
 
         final CalendarView calendarView = binding.calendarView;
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -78,7 +78,7 @@ public class NotificationsFragment extends Fragment {
                 bundle.putInt("Year", year);
                 bundle.putInt("Month", month+1);
                 bundle.putInt("Day", day);
-                bundle.putString("CounselorName", counselor_choice);
+                //bundle.putString("CounselorName", counselor_choice);
                 Intent time_schedule = new Intent(getActivity(), edu.wit.mobileapp.wellness_app.ui.notifications.time_schedule.class);
                 time_schedule.putExtras(bundle);
                 startActivity(time_schedule);
@@ -96,6 +96,8 @@ public class NotificationsFragment extends Fragment {
                 transaction.commit();
             }
         });*/
+
+
         return root;
     }
 
