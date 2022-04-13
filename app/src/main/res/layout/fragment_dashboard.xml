@@ -79,7 +79,7 @@
                 android:layout_height="426dp"
                 android:lineSpacingExtra="8sp"
                 android:text="Degrees: \nUniversity of Delaware; Bachelor of Arts \nBoston University; Master of Social Work \n\nAffiliations: \nNational Association of Social Workers Professional interests \nSexuality, Gender, LGBTQ+ community, relationships, identity formation, holistic health \n\nClinical Approach: \nDialectical Behavior Therapy, Group Therapy, client-centered and collaborative."
-                android:textAlignment="viewStart"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -122,6 +122,7 @@
                 android:layout_height="370dp"
                 android:lineSpacingExtra="8sp"
                 android:text="Degrees: \nEastern Michigan University, Bachelor of Science. \nBoston College, Master of Social Work. \n\nAffiliations: \nNational Association of Social Work, Unified Protocol Institute. Professional interests \n\nClinical Approach: \nCognitive Behavior Therapy, Dialectical Behavior Therapy, Unified Protocol, collaborative, humanistic.  "
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -165,6 +166,7 @@
                 android:layout_height="372dp"
                 android:lineSpacingExtra="8sp"
                 android:text="Degrees: \nWellesley College, Bachelor of Arts \nBoston College, Master of Social Work. \n\nProfessional Interests: \nAnxiety and Depressive Disorders, familial relationships and Identity formation, time management/goal setting and achievement\n\nClinical Approach: \nCognitive Behavior Therapy, Dialectical Behavior Therapy, Unified Protocol, collaborative, humanistic.  "
+                android:textAlignment="center"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -172,6 +174,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.104" />
+
+
 
             <Button
                 android:id="@+id/contactBtn"

@@ -35,7 +35,7 @@ import edu.wit.mobileapp.wellness_app.R;
 public class time_schedule extends AppCompatActivity implements TimePicker.OnTimeChangedListener {
 
     String month_name = "";
-    private String fileName = "WelnessAppFile";
+    private String fileName = "WellnessAppFile";
     int hour_choice, minute_choice;
     private Context context;
     private String email ="";
