@@ -50,9 +50,9 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
         int year = bundle.getInt("Year");
         int month = bundle.getInt("Month");
         int day = bundle.getInt("Day");
-        String counselorName = bundle.getString("CounselorName");
+        String counselor_choice = bundle.getString("CounselorName");
 
-        Log.v("Special passing value", "Counselor choice: " + counselorName);
+        Log.v("Special passing value", "Counselor choice: " + counselor_choice);
 
         switch (month){
             case 1:
@@ -153,7 +153,8 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
         listView.setAdapter(adapter);
         */
         counselourName = (TextView)findViewById(R.id.conselour_name);
-        counselourName.setText(counselorName);
+        counselourName.setText(counselor_choice);
+
         LinearLayout linearLayout = (LinearLayout)findViewById(R.id.confirm);
         Button confirmbtn = (Button) linearLayout.findViewById(R.id.confirm_button);
         confirmbtn.setOnClickListener(new View.OnClickListener() {
@@ -166,18 +167,18 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
                 intent.putExtra(Intent.EXTRA_TEXT,
                         "Confirm time: \n\t" + dayOfWeek + " " + month_name + " " + day +
                                 " at " + hour_choice + ":" + minute_choice +
-                                " at Wellness Center with Counselor " + counselorName +
+                                " at Wellness Center with Counselor " + counselor_choice +
                                 " for user with that email: " + email );
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(Intent.createChooser(intent,"Send mail ..."));
             }
         });
+
         Button backbtn = (Button) linearLayout.findViewById(R.id.back_button);
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(time_schedule.this, NotificationsFragment.class);
-                startActivity(intent);
+                backToNotification();
             }
         });
 
@@ -190,7 +191,9 @@ public class time_schedule extends AppCompatActivity implements TimePicker.OnTim
         minute_choice = i1;
     }
 
-    public class ListItem{
-        public String counselor_name;
+    public void backToNotification(){
+        Intent intent = new Intent(this, NotificationsFragment.class);
+        startActivity(intent);
     }
+
 }

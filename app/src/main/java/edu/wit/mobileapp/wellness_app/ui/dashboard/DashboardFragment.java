@@ -104,7 +104,7 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        TextView counselor_3 = binding.counselorName1;
+        TextView counselor_3 = binding.counselorName3;
         counselor_3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
