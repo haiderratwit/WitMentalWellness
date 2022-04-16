@@ -17,6 +17,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import java.io.FileOutputStream;
 
@@ -28,6 +30,7 @@ public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
     private FragmentDashboardBinding binding;
+    private NavController navController;
 
     private String fileName = "Wellness_Counselor";
     private String counselorName ="";
@@ -59,16 +62,14 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-
+        navController = Navigation.findNavController(container);
         TextView counselor_1 = binding.counselorName1;
         counselor_1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
-                Fragment fragment_home = new NotificationsFragment();
-                transaction.replace(R.id.container, fragment_home);
-                transaction.commit();
+                navController.navigate(R.id.navigation_notifications);
+
+
                 counselorName = counselor_1.getText().toString();
 
                 FileOutputStream outputStream;
@@ -86,11 +87,7 @@ public class DashboardFragment extends Fragment {
         counselor_2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
-                Fragment fragment_home = new NotificationsFragment();
-                transaction.replace(R.id.container, fragment_home);
-                transaction.commit();
+                navController.navigate(R.id.navigation_notifications);
                 counselorName = counselor_2.getText().toString();
 
                 FileOutputStream outputStream;
@@ -108,11 +105,7 @@ public class DashboardFragment extends Fragment {
         counselor_3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction transaction = fm.beginTransaction();
-                Fragment fragment_home = new NotificationsFragment();
-                transaction.replace(R.id.container, fragment_home);
-                transaction.commit();
+                navController.navigate(R.id.navigation_notifications);
                 counselorName = counselor_3.getText().toString();
 
                 FileOutputStream outputStream;
